@@ -162,7 +162,7 @@ namespace JHDataParse.UIForm
                 foreach (SemsScoreInfo ss in DelSemsScoreList)
                 {
                     innerText.Clear();
-                    
+
                     // 重組XML
                     foreach (XElement elm in ss.ScoreInfoXML.Elements())
                     {
@@ -173,7 +173,7 @@ namespace JHDataParse.UIForm
                     UPDATE 
                         sems_subj_score 
                         SET score_info = '{0}' 
-                        WHERE id = {1}", innerText.ToString(), ss.ID);
+                        WHERE id = {1}", innerText.ToString().Replace("'", "''"), ss.ID);
 
                     // log 資料
                     StringBuilder sb = new StringBuilder();
